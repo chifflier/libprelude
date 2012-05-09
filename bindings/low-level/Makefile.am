@@ -35,7 +35,7 @@ endif
 # to not generate them
 perl/Prelude.c: $(BINDING_DEPENDS)
 if HAVE_SWIG
-	$(SWIG) -I$(top_srcdir)/bindings -I$(top_srcdir)/src/include -I$(top_srcdir)/src/libprelude-error -o $@ -perl5 -nopm \
+	$(SWIG) -I$(srcdir) -I$(builddir) -I$(top_srcdir)/bindings -I$(top_srcdir)/src/include -I$(top_builddir)/src/include -I$(top_srcdir)/src/libprelude-error -I$(top_builddir)/src/libprelude-error -o $@ -perl5 -nopm \
 	`$(SWIG) -perl5 -help 2>&1 | grep noproxy > /dev/null && echo -noproxy` libprelude.i
 endif
 
