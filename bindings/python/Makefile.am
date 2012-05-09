@@ -18,9 +18,9 @@ clean-local:
 	$(PYTHON) setup.py clean -a
 
 
-_PreludeEasy.cxx PreludeEasy.py: $(top_srcdir)/bindings/c++/include/*.hxx $(top_srcdir)/bindings/libpreludecpp.i libpreludecpp-python.i 
+_PreludeEasy.cxx PreludeEasy.py: $(top_srcdir)/bindings/c++/include/*.hxx $(top_srcdir)/bindings/libpreludecpp.i $(srcdir)/libpreludecpp-python.i 
 if HAVE_SWIG
-	$(SWIG) -c++ -I$(top_srcdir)/bindings -I$(top_srcdir)/bindings/c++/include -I$(top_srcdir)/src/include -I$(top_srcdir)/src/libprelude-error -python -o $@ ../libpreludecpp.i
+	$(SWIG) -c++ -I$(srcdir) -I$(top_srcdir)/bindings -I$(top_srcdir)/bindings/c++/include -I$(top_srcdir)/src/include -I$(top_srcdir)/src/libprelude-error -python -o $@ $(top_srcdir)/bindings/libpreludecpp.i
 endif
 
 endif

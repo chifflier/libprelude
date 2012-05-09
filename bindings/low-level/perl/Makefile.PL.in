@@ -5,7 +5,7 @@ use File::Copy;
 use Cwd "abs_path";
 
 my %attributs = (NAME => 'Prelude',
-		 INC => '-I@top_srcdir@ -I@top_builddir@/src/include -I@top_srcdir@/src/include -I@top_builddir@/src/libprelude-error',
+		 INC => '-I@top_srcdir@ -I@top_builddir@ -I@top_builddir@/src/include -I@top_srcdir@/src/include -I@top_builddir@/src/libprelude-error',
 		 LIBS => ["-L@top_builddir@/src/.libs -lprelude", "-L$ENV{LIBDIR} -lprelude @LIBPRELUDE_LIBS@ @LIBADD_DL@ @LTLIBTHREAD@" ],
 		 LDDLFLAGS => "-L@top_builddir@/src/.libs $Config{lddlflags}");
 
